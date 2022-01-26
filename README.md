@@ -21,7 +21,7 @@ How to apply ranking functions?
      
      petCompanies
 
-- You will also find queries in Companies.sql and my explanations of similarities and differencies between ranking functions:
+- The queries in Companies.sql include commented explanations of similarities and differencies between ranking functions:
 
      rank() and rank() with partition by
 
