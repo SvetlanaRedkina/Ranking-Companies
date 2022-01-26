@@ -9,7 +9,7 @@ How to apply ranking functions?
 
 ## Authors
 
-- [@svetlana_redkina](https://github.com/SvetlanaRedkina)
+- [@SvetlanaRedkina](https://github.com/SvetlanaRedkina)
 
 
 ## Companies.sql
