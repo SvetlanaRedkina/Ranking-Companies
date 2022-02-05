@@ -38,20 +38,20 @@ SELECT RevenueStream,
 		) AS Ranked
 FROM Companies;
 /* Output:
-RevenueStream						 Company				RevenueBillions		                Ranked
-iPhone							 Apple					166					1
-Online Stores        				         Amazon					123					2
-Advertising (Google Properties)		                 Alphabet				96					3
-3rd Party Seller Services			         Amazon					42					4
-Services					         Apple					37					5
+RevenueStream						 Company				RevenueBillions		Ranked
+iPhone								 Apple					166					1
+Online Stores        				 Amazon					123					2
+Advertising (Google Properties)		 Alphabet				96					3
+3rd Party Seller Services			 Amazon					42					4
+Services							 Apple					37					5
 Web Services						 Amazon					25					6
-iPad						         Apple					23					7
-Mac							 Apple					23					7
-Google Ads					         Alphabet				20					9
-Google Other					         Alphabet				20					9
+iPad								 Apple					23					7
+Mac									 Apple					23					7
+Google Ads							 Alphabet				20					9
+Google Other					     Alphabet				20					9
 Physical Stores						 Amazon					17					11
 Other Products						 Apple					17					11
-Subscription Services				         Amazon					14					13 
+Subscription Services				 Amazon					14					13 
 */
 
 
@@ -68,19 +68,19 @@ SELECT RevenueStream,
 FROM Companies;
 /* Output:
 RevenueStream							Company				RevenueBillions			RankedPartitioned
-Advertising (Google Properties)			                Alphabet			96				1
-Google Ads						        Alphabet			20				2
-Google Other							Alphabet			20				2
-Online Stores							Amazon				123				1
-3rd Party Seller Services				        Amazon				42				2
-Web Services							Amazon				25				3
-Physical Stores							Amazon				17				4
-Subscription Services					        Amazon				14				5
-iPhone								Apple				166				1
-Services							Apple				37				2
-iPad								Apple				23				3
-Mac								Apple				23				3
-Other Products							Apple				17				5
+Advertising (Google Properties)			Alphabet			96						1
+Google Ads								Alphabet			20						2
+Google Other							Alphabet			20						2
+Online Stores							Amazon				123						1
+3rd Party Seller Services				Amazon				42						2
+Web Services							Amazon				25						3
+Physical Stores							Amazon				17						4
+Subscription Services					Amazon				14						5
+iPhone									Apple				166						1
+Services								Apple				37						2
+iPad									Apple				23						3
+Mac										Apple				23						3
+Other Products							Apple				17						5
 */
 
 /* Task 3: Apply dense_rank() in order to rank the table based on Companies' Revenues in descending order.
@@ -94,6 +94,23 @@ SELECT RevenueStream,
 		ORDER BY RevenueBillions DESC
 		) AS DenseRanked
 FROM Companies;
+/* Output:
+RevenueStream							Company		RevenueBillions		DenseRanked
+iPhone									Apple		166					1
+Online Stores							Amazon		123					2
+Advertising (Google Properties)			Alphabet	96					3
+3rd Party Seller Services				Amazon		42					4
+Services								Apple		37					5
+Web Services							Amazon		25					6
+iPad									Apple		23					7
+Mac										Apple		23					7
+Google Ads								Alphabet	20					8
+Google Other							Alphabet	20					8
+Physical Stores							Amazon		17					9
+Other Products							Apple		17					9
+Subscription Services					Amazon		14					10
+*/
+
 
 /* Task 4: Partition the table based on Company, then apply dense_rank() in order to sort each partition based on Revenue (descending) in consecutive order.
 A note:
@@ -106,6 +123,23 @@ SELECT RevenueStream,
 		PARTITION BY Company ORDER BY RevenueBillions DESC
 		) AS DenseRankedPartitioned
 FROM Companies;
+/* Output:
+RevenueStream							Company		RevenueBillions		DenseRankedPartitioned						
+Advertising (Google Properties)			Alphabet	96					1
+Google Ads								Alphabet	20					2
+Google Other							Alphabet	20					2
+Online Stores							Amazon		123					1
+3rd Party Seller Services				Amazon		42					2
+Web Services							Amazon		25					3
+Physical Stores							Amazon		17					4
+Subscription Services					Amazon		14					5
+iPhone									Apple		166					1
+Services								Apple		37					2
+iPad									Apple		23					3
+Mac										Apple		23					3
+Other Products							Apple		17					4
+*/
+
 
 /* Task 5: Apply row_number() to rank the table based on RevenueBillions in descending order.
 A note:
@@ -117,6 +151,23 @@ SELECT RevenueStream,
 		ORDER BY RevenueBillions DESC
 		) AS RowNumber
 FROM Companies;
+/* Output:
+RevenueStream							Company			RevenueBillions		RowNUmber
+iPhone									Apple			166					1
+Online Stores							Amazon			123					2
+Advertising (Google Properties)			Alphabet		96					3
+3rd Party Seller Services				Amazon			42					4
+Services								Apple			37					5
+Web Services							Amazon			25					6
+iPad									Apple			23					7
+Mac										Apple			23					8
+Google Ads								Alphabet		20					9
+Google Other							Alphabet		20					10
+Physical Stores							Amazon			17					11
+Other Products							Apple			17					12
+Subscription Services					Amazon			14					13
+*/
+
 
 /* Task 6: Using row_number(), partition the table by Company and rank it based on RevenueBillions.
 A note:
@@ -130,6 +181,23 @@ SELECT RevenueStream,
 		PARTITION BY RevenueBillions ORDER BY RevenueBillions DESC
 		) AS RowNumberPartitioned
 FROM Companies;
+/* Output:
+RevenueStream					Company				RevenueBillions		RowNumberPartitioned
+Subscription Services			Amazon				14					1
+Physical Stores					Amazon				17					1
+Other Products					Apple				17					2
+Google Ads						Alphabet			20					1
+Google Other					Alphabet			20					2
+iPad							Apple				23					1
+Mac								Apple				23					2	
+Web Services					Amazon				25					1
+Services						Apple				37					1
+3rd Party Seller Services		Amazon				42					1
+Advertising (Google Properties) Alphabet			96					1
+Online Stores					Amazon				123					1
+iPhone							Apple				166					1
+*/
+
 
 /* It is also helpful to know lead() and lag() functions, if one wants to get a preceding or succeeding value within a partition.
 Lead() function can be applied when we are dealing with the dates that overlap. The example below helps to illustrate it. 
@@ -164,6 +232,13 @@ SELECT Project_name,
 		ORDER BY In_project
 		) + 1 AS DaysInProjects
 FROM projectDates;
+/*Output:
+Project_name            In_project		Out_project		DaysInProjects
+Advanced Joins			2021-04-05		2021-04-08		3
+Stored Procedures		2021-04-06		2021-04-09		2
+ACID Transactions		2021-04-08		2021-04-12		-1
+Regular Expressions		2021-04-16		2021-04-16		NULL
+*/
 
 /* A note about the logic behind the query: 
 The student is working on 'Advanced Joins' and 'Stored Procedures' at the same time for 3 days.
@@ -212,6 +287,22 @@ SELECT Year,
 		PARTITION BY Year ORDER BY Company
 		) AS LagRevenue
 FROM petCompanies;
+/* Output:
+Year	Company			Service							Revenue		LagRevenue
+2019	Cute Paws		Pet Massage						31000		NULL
+2019	Cute paws		Pet Sitting						49000		31000
+2019	Pets First		Mobile Grooming					45000		49000
+2019	Pets First		Pets Consulting					14500		45000
+2019	Woof&Meow		Mobile Grooming					30000		14500
+2019	Woof&Meow		Food&Supplies Delivery			120000		30000
+2020	Cute Paws		Mobile Grooming					43500		NULL
+2020	Cute Paws		Pet Sitting						31000		43500
+2020	Pets First		Mobile Grooming					35000		31000
+2020	Pets First		Pet Consulting					25000		35000
+2020	Woof&Meow		Food&Supplies Delivery			61000		25000
+2020	Woof&Meow		Pet Photography					19000		61000
+*/
+
 
 /* The logic is similar, if we apply lead() to petCompanies table.
 The only difference is that lead() is used to get value from row that succeeds the current row.
@@ -225,3 +316,18 @@ SELECT Year,
 		PARTITION BY Year ORDER BY Company
 		) AS LeadRevenue
 FROM petCompanies;
+/* Output:
+Year	Company			Service							Revenue		LagRevenue
+2019	Cute Paws		Pet Massage						31000		49000
+2019	Cute paws		Pet Sitting						49000		45000
+2019	Pets First		Mobile Grooming					45000		14500
+2019	Pets First		Pets Consulting					14500		30000
+2019	Woof&Meow		Mobile Grooming					30000		120000
+2019	Woof&Meow		Food&Supplies Delivery			120000		NULL
+2020	Cute Paws		Mobile Grooming					43500		31000
+2020	Cute Paws		Pet Sitting						31000		35000
+2020	Pets First		Mobile Grooming					35000		25000
+2020	Pets First		Pet Consulting					25000		61000
+2020	Woof&Meow		Food&Supplies Delivery			61000		19000
+2020	Woof&Meow		Pet Photography					19000		NULL
+*/
