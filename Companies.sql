@@ -37,6 +37,23 @@ SELECT RevenueStream,
 		ORDER BY RevenueBillions DESC
 		) AS Ranked
 FROM Companies;
+/* Output:
+RevenueStream						 Company				RevenueBillions		Ranked
+iPhone								 Apple					166					1
+Online Stores        				 Amazon					123					2
+Advertising (Google Properties)		 Alphabet				96					3
+3rd Party Seller Services			 Amazon					42					4
+Services							 Apple					37					5
+Web Services						 Amazon					25					6
+iPad								 Apple					23					7
+Mac									 Apple					23					7
+Google Ads							 Alphabet				20					9
+Google Other					     Alphabet				20					9
+Physical Stores						 Amazon					17					11
+Other Products						 Apple					17					11
+Subscription Services				 Amazon					14					13 
+*/
+
 
 /* Task 2: Partition the table based on Company, then apply rank() in order to sort each partition based on Revenue in descending order.
 A note: 
@@ -49,6 +66,22 @@ SELECT RevenueStream,
 		PARTITION BY Company ORDER BY RevenueBillions DESC
 		) AS RankedPartitioned
 FROM Companies;
+/* Output:
+RevenueStream							Company				RevenueBillions			RankedPartitioned
+Advertising (Google Properties)			Alphabet			96						1
+Google Ads								Alphabet			20						2
+Google Other							Alphabet			20						2
+Online Stores							Amazon				123						1
+3rd Party Seller Services				Amazon				42						2
+Web Services							Amazon				25						3
+Physical Stores							Amazon				17						4
+Subscription Services					Amazon				14						5
+iPhone									Apple				166						1
+Services								Apple				37						2
+iPad									Apple				23						3
+Mac										Apple				23						3
+Other Products							Apple				17						5
+*/
 
 /* Task 3: Apply dense_rank() in order to rank the table based on Companies' Revenues in descending order.
 A note:  
