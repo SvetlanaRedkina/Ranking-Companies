@@ -321,7 +321,7 @@ FROM petCompanies;
 
 /* Output:
 
-Year		Company			Service					Revenue			LeadRevenue
+Year		Company			Service					Revenue			LagRevenue
 
 2019		Cute Paws		Pet Massage				31000			NULL
 2019		Cute paws		Pet Sitting				49000			31000
@@ -354,7 +354,7 @@ FROM petCompanies;
 
 /* Output:
 
-Year		Company			Service					Revenue			LagRevenue
+Year		Company			Service					Revenue			LeadRevenue
 
 2019		Cute Paws		Pet Massage				31000			49000
 2019		Cute paws		Pet Sitting				49000			45000
