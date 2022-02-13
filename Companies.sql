@@ -321,7 +321,7 @@ FROM petCompanies;
 
 /* Output:
 
-Year		Company			Service					Revenue			LagRevenue
+Year		Company			Service					Revenue			LeadRevenue
 
 2019		Cute Paws		Pet Massage				31000			NULL
 2019		Cute paws		Pet Sitting				49000			31000
