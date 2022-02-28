@@ -3,12 +3,12 @@
   align="right"
   src="readme-logo.png"
   style="width: 230px; height: 130px">  
-# Ranking-Companies
+# *Ranking-Companies*
 
 Ranking functions are super helpful in SQL but can sometimes be confusing.This is how I came up with an idea of this project. I wanted ranking functions to be under my belt, so I would use them within my derived tables or CTE. I hope it might be useful for you!
 
 
-## Companies.sql
+## *Companies.sql*
 - You will find three tables in Companies.sql: Companies, projectDates, and petCompanies. 
 - The queries in Companies.sql include commented explanations of similarities and differencies between ranking functions:
 
