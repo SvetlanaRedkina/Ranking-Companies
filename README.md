@@ -9,23 +9,16 @@ Ranking functions are super helpful in SQL but can sometimes be confusing.This i
 
 
 ## Companies.sql
-- You will find three tables in Companies.sql:
-    
-     Companies
-
-     projectDates
-     
-     petCompanies
-
+- You will find three tables in Companies.sql: Companies, projectDates, and petCompanies. 
 - The queries in Companies.sql include commented explanations of similarities and differencies between ranking functions:
 
-     rank() and rank() with partition by
-
-     dense_rank() and dense_rank() with partition by
-
-     row_number() and row_number() with partition by
-
-     lead() and lag()
+     *rank() and rank() with partition by*
+     
+     *dense_rank() and dense_rank() with partition by*
+     
+     *row_number() and row_number() with partition by*
+     
+     *lead() and lag()*
 
 - The screnshots of the tables show how the tables look after values have been inserted into them
 
