@@ -5,11 +5,15 @@
   style="width: 230px; height: 130px">  
 # Ranking-Companies
 
-How to apply ranking functions? 
+Ranking functions are super helpful in SQL but can sometimes be confusing.
 
-## Authors
+This is how I came up with an idea of this project.
 
-- [@SvetlanaRedkina](https://github.com/SvetlanaRedkina)
+I wanted ranking functions to be under my belt, so I would use them in my derived tables and CTE.
+
+I am so glad I have done this project.
+
+I hope it might be useful for you!
 
 
 ## Companies.sql
@@ -33,6 +37,11 @@ How to apply ranking functions?
 
 - The screnshots of the tables show how the tables look after values have been inserted into them
 
-## Honest feedback
+Authors
 
-If you have any feedback, please reach out to me at sveta.hq@gmail.com
+- [@SvetlanaRedkina](https://github.com/SvetlanaRedkina)
+
+
+Honest feedback
+
+- If you have any feedback, please reach out to me at sveta.hq@gmail.com
