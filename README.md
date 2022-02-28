@@ -3,7 +3,7 @@
   align="right"
   src="readme-logo.png"
   style="width: 230px; height: 130px">  
-# Ranking-MySQL
+# Ranking-Companies
 
 How to apply ranking functions? 
 
