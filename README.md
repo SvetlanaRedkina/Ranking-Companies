@@ -5,12 +5,12 @@
   style="width: 230px; height: 130px">  
 ## Ranking-Companies
 
-Ranking functions are super helpful 👍 in SQL but can sometimes be confusing.This is how I came up with an idea of this project ✨. I wanted ranking functions to be under my belt 💪, so I would use them within my derived tables or CTE. I will be glad if my project is useful to someone else 😊.
+Ranking functions are super helpful 👍 in SQL but can sometimes be confusing. This is how I came up with an idea of this project ✨. I wanted ranking functions to become one of my strengths 💪, so I would use these functions inside my derived tables or CTE. I would be glad if my project benefited someone else 😊.
 
 
 ### Companies.sql
-- You will find three tables in Companies.sql: Companies, projectDates, and petCompanies. 
-- Each query in Companies.sql  achieves a certain task and includes explanations of similarities and differencies between ranking functions:
+- You will find three tables in the Companies.sql: Companies, projectDates, and petCompanies. 
+- Each query in the Companies.sql achieves a certain task and includes explanations of the similarities and differencies between ranking functions:
 
      1️⃣ rank() and rank() with partition by
      
@@ -20,7 +20,7 @@ Ranking functions are super helpful 👍 in SQL but can sometimes be confusing.T
      
      4️⃣ lead() and lag()
 
-- The screnshots of the tables show how the tables look after values have been inserted into them.
+- The screenshots of the tables show how the tables look after values have been inserted into them.
 
 Authors
 
