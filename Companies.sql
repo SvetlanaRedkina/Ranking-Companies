@@ -9,12 +9,12 @@ CREATE TABLE Companies (
 INSERT INTO Companies (RevenueStream, Company, RevenueBillions)
 VALUES
 	('iPhone', 'Apple', 166), 
-    ('Google Ads','Alphabet', 20),
+        ('Google Ads','Alphabet', 20),
 	('Subscription Services', 'Amazon', 14),
 	('Services','Apple', 37),
 	('Physical Stores','Amazon', 17),
 	('iPad', 'Apple', 23),
-    ('Google Other', 'Alphabet', 20),
+        ('Google Other', 'Alphabet', 20),
 	('Web Services', 'Amazon', 25),
 	('Mac','Apple', 23),
 	('Online Stores', 'Amazon', 123),
